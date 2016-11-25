@@ -1,0 +1,102 @@
+
+#include "Outil.h"
+#define N 11
+
+void init_grille(char grille[N][N]){
+	int i, j;
+	
+	for(i=0; i<N; i++){
+		for(j=0; j<N; j++){
+			int lettre = '@'+uHasard(26);
+			grille[i][j] = lettre;	
+		}
+	}
+}
+
+
+int main(){
+	char grille[N][N];
+	char mot1[N];
+	char mot2[N];
+	char mot3[N];
+	char mot4[N];
+	char mot5[N];
+	char mot6[N];
+	
+	int i, j, k;
+	
+	strcpy(mot1,"MERCI");
+	strcpy(mot2,"CHIEN");
+	strcpy(mot3,"HIMALAYA");
+	strcpy(mot4,"CARAPACE");
+	strcpy(mot5,"CHOUX");
+	strcpy(mot6,"PURGE");
+	
+	init_grille(grille);
+	i = 0;
+	j = 0;
+	k = 0;
+	for(i=0;i<nChaineLg(mot1); i++){
+		grille[j][k] = mot1[i];
+		j++;
+		k++;
+	}
+	
+	i = 0;
+	j = 3;
+	k = 3;
+	for(i=0;i<nChaineLg(mot2); i++){
+		grille[j][k] = mot2[i];
+		k++;
+	}
+	
+	i = 0;
+	j = 3;
+	k = 4;
+	for(i=0;i<nChaineLg(mot3); i++){
+		grille[j][k] = mot3[i];
+		j++;
+	}
+	
+	i = 0;
+	j = 6;
+	k = 3;
+	for(i=0;i<nChaineLg(mot4); i++){
+		grille[j][k] = mot4[i];
+		k++;
+	}
+	
+	i = 0;
+	j = 6;
+	k = 9;
+	for(i=0;i<nChaineLg(mot5); i++){
+		grille[j][k] = mot5[i];
+		j++;
+	}
+	
+	i = 0;
+	j = 2;
+	k = 10;
+	for(i=0;i<nChaineLg(mot6); i++){
+		grille[j][k] = mot6[i];
+		j++;
+	}
+	
+	printf("Voici les mots à trouver: \n");
+	printf("MERCI\n");
+	printf("CHIEN\n");
+	printf("HIMALAYA\n");
+	printf("CARAPACE\n");
+	printf("CHOUX\n");
+	printf("PURGE\n");
+	printf("\n");
+	i = 0;
+	j = 0;
+	for(i=0; i<N; i++){
+		for(j=0; j<N; j++){
+			printf("%c ", grille[i][j]);
+		}
+		printf("\n");
+	}
+}
+		
